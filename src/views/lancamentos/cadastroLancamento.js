@@ -6,7 +6,6 @@ import FormGroup from "../../components/formGroup";
 import SelectMenu from "../../components/selectMenu";
 import LancamentoService from "../../app/service/lancamentoService";
 import UsuarioService from "../../app/service/usuarioService";
-import currencyFormatter from "currency-formatter"
 import LocalStorageServive from "../../app/service/localStorageService"
 import * as messages from "../../components/toastr"
 import { navigate } from "../../main/navigate";

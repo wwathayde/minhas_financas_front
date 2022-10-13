@@ -163,12 +163,12 @@ class ConsultaLancamentos extends React.Component {
                                         onChange={e => this.setState({ conta: e.target.value })}
                                         clazz="form-control" />
                                 </FormGroup> */}
-                                <FormGroup htmlFor="inputTipoLancamento" label="Tipo lançamento:">
+                                {/* <FormGroup htmlFor="inputTipoLancamento" label="Tipo lançamento:">
                                     <SelectMenu lista={listaTipos}
                                         value={this.state.tipo}
                                         onChange={e => this.setState({ tipo: e.target.value })}
                                         clazz="form-control" />
-                                </FormGroup>
+                                </FormGroup> */}
                             </div>
                             <div className="d-flex justify-content-center mt-3" >
                                 <button onClick={this.buscar} type="button" className="btn btn-success" style={{ marginRight: "30px" }} >Buscar</button>
