@@ -35,7 +35,7 @@ class Home extends React.Component {
 				<hr className="my-4" />
 				<p>E essa é sua área administrativa, utilize um dos menus ou botões abaixo para navegar pelo sistema.</p>
 				<div className="lead d-flex justify-content-center">
-					<Link to="/cadastro-usuario" className="btn btn-primary btn-lg" style={{ marginRight: "5px" }}>Cadastrar Usuário</Link>
+					{/* <Link to="/cadastro-usuario" className="btn btn-primary btn-lg" style={{ marginRight: "5px" }}>Cadastrar Usuário</Link> */}
 					<Link to="/cadastro-lancamentos" className="btn btn-danger btn-lg">Cadastrar Lançamento</Link>
 				</div>
 			</div>

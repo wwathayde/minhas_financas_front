@@ -16,11 +16,11 @@ function Navbar() {
                 <Link to="/" className="navbar-brand">Minhas Finanças</Link>
                 <div className="collapse navbar-collapse" id="navbarResponsive">
                     <ul className="navbar-nav">
-                        <NavbarItem href="/" label="Home" />
-                        <NavbarItem href="/cadastro-usuario" label="Usuários" />
-                        <NavbarItem href="/consulta-lancamentos" label="Lançamentos" />
-                        <NavbarItem href="/cadastro-lancamentos" label="Cadastro lançamentos" />
-                        <NavbarItem onClick={deslogar} href="/login" label="Sair" />
+                        <NavbarItem render={true} href="/" label="Home" />
+                        <NavbarItem render={true} href="/cadastro-usuario" label="Usuários" />
+                        <NavbarItem render={true} href="/consulta-lancamentos" label="Lançamentos" />
+                        <NavbarItem render={true} href="/cadastro-lancamentos" label="Cadastro lançamentos" />
+                        <NavbarItem render={true} onClick={deslogar} href="/login" label="Sair" />
                         {/* <NavbarItem href="/cadastro-categoria" label="Categoria" />
                         <NavbarItem href="/cadastro-limite-despesa" label="Limite despesa" />
                         <NavbarItem href="/cadastro-conta" label="Conta" />
