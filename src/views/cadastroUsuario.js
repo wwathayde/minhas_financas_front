@@ -5,6 +5,7 @@ import FormGroup from "../components/formGroup";
 import UsuarioService from "../app/service/usuarioService";
 import LocalStorageService from "../app/service/localStorageService";
 import { mensagemErro, mensagemSucesso } from "../components/toastr"
+import { navigate } from "../main/navigate";
 
 class CadastroUsuario extends React.Component {
 
@@ -61,6 +62,7 @@ class CadastroUsuario extends React.Component {
             .then(response => {
                 LocalStorageService.adicionarItem('_usuario_logado', response.data)
                 mensagemSucesso('Usuário criado com sucesso!')
+                this.props.navigate('/')
             }).catch(error => {
                 mensagemErro(error.response.data)
             })
@@ -107,7 +109,6 @@ class CadastroUsuario extends React.Component {
                             </FormGroup>
                             <div className="d-flex justify-content-center mt-3" >
                                 <button onClick={this.cadastrar} type="button" className="btn btn-success" style={{ marginRight: "30px" }} >Salvar</button>
-                                <Link to="/consulta-lancamentos" ><button onClick={this.cadastrar} type="button" className="btn btn-success" style={{ marginRight: "30px" }} >Salvar</button></Link>
                                 <Link to="/consulta-lancamentos" ><button type="button" className="btn btn-danger">Cancelar</button></Link>
                             </div>
                         </div>
@@ -118,4 +119,4 @@ class CadastroUsuario extends React.Component {
     }
 }
 
-export default CadastroUsuario;
+export default navigate(CadastroUsuario);

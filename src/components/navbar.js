@@ -18,13 +18,13 @@ function Navbar() {
                     <ul className="navbar-nav">
                         <NavbarItem href="/" label="Home" />
                         <NavbarItem href="/cadastro-usuario" label="Usuários" />
-                        <NavbarItem href="/cadastro-conta" label="Conta" />
-                        <NavbarItem href="/cadastro-cartao" label="Cartão" />
                         <NavbarItem href="/consulta-lancamentos" label="Lançamentos" />
                         <NavbarItem href="/cadastro-lancamentos" label="Cadastro lançamentos" />
-                        <NavbarItem href="/cadastro-categoria" label="Categoria" />
-                        <NavbarItem href="/cadastro-limite-despesa" label="Limite despesa" />
                         <NavbarItem onClick={deslogar} href="/login" label="Sair" />
+                        {/* <NavbarItem href="/cadastro-categoria" label="Categoria" />
+                        <NavbarItem href="/cadastro-limite-despesa" label="Limite despesa" />
+                        <NavbarItem href="/cadastro-conta" label="Conta" />
+                        <NavbarItem href="/cadastro-cartao" label="Cartão" /> */}
                     </ul>
                 </div>
             </div>
