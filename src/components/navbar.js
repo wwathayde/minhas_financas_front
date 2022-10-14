@@ -9,6 +9,14 @@ const deslogar = () => {
     navigate('/login')
 }
 
+const usuarioAutenticado = () => {
+    const usuario = LocalStorageService.obterItem('_usuario_logado')
+    if (usuario && usuario.id) {
+        return true
+    }
+    return false
+}
+
 function Navbar() {
     return (
         <div className="navbar navbar-expand-lg fixed-top navbar-dark bg-primary" >
@@ -16,11 +24,8 @@ function Navbar() {
                 <Link to="/" className="navbar-brand">Minhas Finanças</Link>
                 <div className="collapse navbar-collapse" id="navbarResponsive">
                     <ul className="navbar-nav">
-                        <NavbarItem render={true} href="/" label="Home" />
-                        <NavbarItem render={true} href="/cadastro-usuario" label="Usuários" />
-                        <NavbarItem render={true} href="/consulta-lancamentos" label="Lançamentos" />
-                        <NavbarItem render={true} href="/cadastro-lancamentos" label="Cadastro lançamentos" />
-                        <NavbarItem render={true} onClick={deslogar} href="/login" label="Sair" />
+                        <NavbarItem render={usuarioAutenticado()} href="/consulta-lancamentos" label="Lançamentos" />
+                        <NavbarItem render={usuarioAutenticado()} onClick={deslogar} href="/login" label="Sair" />
                         {/* <NavbarItem href="/cadastro-categoria" label="Categoria" />
                         <NavbarItem href="/cadastro-limite-despesa" label="Limite despesa" />
                         <NavbarItem href="/cadastro-conta" label="Conta" />

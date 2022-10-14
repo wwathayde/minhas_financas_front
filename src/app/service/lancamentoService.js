@@ -79,8 +79,7 @@ export default class lancamentoService extends ApiService {
         return [
             { label: 'Selecione', value: '' },
             { label: 'Pago', value: 'PAGO' },
-            { label: 'Pendente', value: 'PENDENTE' },
-            { label: 'Recebido', value: 'RECEBIDO' }
+            { label: 'Pendente', value: 'PENDENTE' }
         ]
     }
 
