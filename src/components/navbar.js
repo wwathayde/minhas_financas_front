@@ -25,9 +25,9 @@ function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarResponsive">
                     <ul className="navbar-nav">
                         <NavbarItem render={usuarioAutenticado()} href="/consulta-lancamentos" label="Lançamentos" />
+                        <NavbarItem render={usuarioAutenticado()} href="/cadastro-categoria" label="Categorias" />
                         <NavbarItem render={usuarioAutenticado()} onClick={deslogar} href="/login" label="Sair" />
-                        {/* <NavbarItem href="/cadastro-categoria" label="Categoria" />
-                        <NavbarItem href="/cadastro-limite-despesa" label="Limite despesa" />
+                        {/* <NavbarItem href="/cadastro-limite-despesa" label="Limite despesa" />
                         <NavbarItem href="/cadastro-conta" label="Conta" />
                         <NavbarItem href="/cadastro-cartao" label="Cartão" /> */}
                     </ul>

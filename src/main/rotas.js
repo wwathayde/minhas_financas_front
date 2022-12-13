@@ -9,7 +9,7 @@ import CadastroConta from "../views/cadastroConta";
 import CadastroCartao from "../views/cadastroCartao";
 import ConsultaLancamentos from "../views/lancamentos/consultaLancamentos";
 import CadastroLancamento from "../views/lancamentos/cadastroLancamento";
-import CadastroCategoria from "../views/cadastroCategoria";
+import CadastroCategoria from "../views/categorias/cadastroCategoria";
 import CadastroLimiteDespesa from "../views/CadastroLimiteDespesa";
 import { RotaAutenticada } from "../components/rotaAutenticada";
 

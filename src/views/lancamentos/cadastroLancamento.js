@@ -6,6 +6,7 @@ import FormGroup from "../../components/formGroup";
 import SelectMenu from "../../components/selectMenu";
 import LancamentoService from "../../app/service/lancamentoService";
 import UsuarioService from "../../app/service/usuarioService";
+import CategoriaService from "../../app/service/categoriaService";
 import LocalStorageServive from "../../app/service/localStorageService"
 import * as messages from "../../components/toastr"
 import { navigate } from "../../main/navigate";
@@ -16,6 +17,7 @@ class CadastroLancamento extends React.Component {
         super()
         this.lancamentoService = new LancamentoService()
         this.usuarioService = new UsuarioService()
+        this.categoriaService = new CategoriaService();
     }
 
     componentDidMount() {
@@ -36,10 +38,12 @@ class CadastroLancamento extends React.Component {
         descricao: '',
         status: '',
         valor: '',
+        categoria: '',
         lancamentoId: null,
         showConfirmDialog: false,
         lancamentoDelecao: {},
-        lancamentos: []
+        lancamentos: [],
+        categorias: []
     }
 
     salvar = () => {
@@ -52,6 +56,7 @@ class CadastroLancamento extends React.Component {
             descricao: this.state.descricao,
             status: this.state.status,
             valor: this.state.valor,
+            categoria: this.state.categoria,
             usuarioId: this.state.usuarioId
         }
 
@@ -78,6 +83,7 @@ class CadastroLancamento extends React.Component {
     }
 
     preencherCampos = (id) => {
+        this.buscarCategorias()
         if (id) {
             this.lancamentoService
                 .consultarPorId(id)
@@ -87,6 +93,7 @@ class CadastroLancamento extends React.Component {
                         mes: response.data.mes,
                         ano: response.data.ano,
                         valor: response.data.valor,
+                        categoria: response.data.categoria,
                         tipo: response.data.tipo,
                         usuarioId: response.data.usuarioId,
                         status: response.data.status,
@@ -111,6 +118,19 @@ class CadastroLancamento extends React.Component {
             })
         }
 
+    }
+
+    buscarCategorias() {
+        this.categoriaService
+            .obterCategorias()
+            .then(response => {
+                this.setState({
+                    categorias: response.data.map(e => {return {'id':e.id, 'label':e.nome, 'value': e.nome, 'descricao': e.descricao, 'pai':e.pai}}),
+                })
+            }).catch(error => {
+                messages.mensagemErro('Erro ao importar categorias!')
+                this.props.navigate('/consulta-lancamentos')
+            })
     }
 
     handleChange = (event) => {
@@ -154,6 +174,13 @@ class CadastroLancamento extends React.Component {
                                     placeholder="Digite a descrição" />
                             </FormGroup>
                             <div className="d-flex justify-content-around mt-3" >
+                                <FormGroup htmlFor="inputCategoria" label="Categoria:">
+                                    <SelectMenu lista={this.state.categorias}
+                                            value={this.state.categoria}
+                                            name='categoria'
+                                            onChange={this.handleChange}
+                                            clazz="form-control" />
+                                </FormGroup>
                                 <FormGroup htmlFor="inputTipoLancamento" label="Tipo lançamento: *">
                                     <SelectMenu lista={listaTipos}
                                         value={this.state.tipo}

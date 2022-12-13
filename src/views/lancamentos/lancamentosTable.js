@@ -6,6 +6,7 @@ export default props => {
         return (
             <tr key={lancamento.id}>
                 <td>{lancamento.descricao}</td>
+                <td className="text-center">{lancamento.categoria}</td>
                 <td className="text-center">{currencyFormatter.format(lancamento.valor, {locale: 'pt-BR'})}</td>
                 <td className="text-center">{lancamento.tipo}</td>
 {/*                 <td className="text-center">{lancamento.data}</td>
@@ -36,6 +37,7 @@ export default props => {
             <thead>
                 <tr>
                     <th scope="col" className="text-center">Descrição</th>
+                    <th scope="col" className="text-center">Categoria</th>
                     <th scope="col" className="text-center">Valor</th>
                     <th scope="col" className="text-center">Tipo</th>
                     {/* <th scope="col" className="text-center">Data</th>

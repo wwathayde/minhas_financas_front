@@ -1,6 +1,6 @@
 import ApiService from "../apiservice";
 
-export default class lancamentoService extends ApiService {
+export default class LancamentoService extends ApiService {
     constructor() {
         super('/api/lancamentos')
     }
