@@ -1,7 +1,7 @@
 import React from "react"
 
 export default props => {
-    const rows = props.categorias.filter(e => e.value != 1).map(categoria => {
+    const rows = props.categorias.filter(e => e.value != "Nenhuma").map(categoria => {
         return (
             <tr key={categoria.value}>
                 <td className="text-center">{categoria.label}</td>

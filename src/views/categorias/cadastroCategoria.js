@@ -38,7 +38,7 @@ class CadastroCategoria extends React.Component {
             .obterCategorias()
             .then(response => {
                 this.setState({
-                    categorias: response.data.filter(e => e.nome != "Nenhuma").map(e => {return {'id':e.id, 'label':e.nome, 'value': e.nome, 'descricao': e.descricao, 'pai':e.pai}}),
+                    categorias: response.data.map(e => {return {'id':e.id, 'label':e.nome, 'value': e.nome, 'descricao': e.descricao, 'pai':e.pai}}),
                 })
             }).catch(error => {
                 messages.mensagemErro('Erro ao importar categorias!')
@@ -66,6 +66,7 @@ class CadastroCategoria extends React.Component {
                 .then(response => {
                     messages.mensagemSucesso('Categoria atualizada com sucesso!')
                     this.apagarCampos()
+                    this.buscarCategorias()
                 }).catch(error => {
                     messages.mensagemErro(error.response.data)
                 })
@@ -74,11 +75,13 @@ class CadastroCategoria extends React.Component {
                 .salvar(categoria)
                 .then(response => {
                     messages.mensagemSucesso('Categoria salva com sucesso!')
+                    this.apagarCampos()
+                    this.buscarCategorias()
                 }).catch(error => {
                     messages.mensagemErro(error.response.data)
                 })
         }
-        this.buscarCategorias()
+
     }
 
     editar = (categoria) => {
@@ -144,7 +147,7 @@ class CadastroCategoria extends React.Component {
                                     name="nome"
                                     placeholder="Digite o Nome" />
                             </FormGroup>
-                            <FormGroup htmlFor="inputDescricao" label="Descrição: *">
+                            <FormGroup htmlFor="inputDescricao" label="Descrição:">
                                 <input type="text"
                                     value={this.state.descricao}
                                     onChange={e => this.setState({ descricao: e.target.value })}
