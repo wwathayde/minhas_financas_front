@@ -6,7 +6,7 @@ export default props => {
         return (
             <tr key={lancamento.id}>
                 <td>{lancamento.descricao}</td>
-                <td className="text-center">{lancamento.categoria}</td>
+                <td className="text-center">{lancamento.categoria == 'Nenhuma' ? '' : lancamento.categoria}</td>
                 <td className="text-center">{currencyFormatter.format(lancamento.valor, {locale: 'pt-BR'})}</td>
                 <td className="text-center">{lancamento.tipo}</td>
 {/*                 <td className="text-center">{lancamento.data}</td>
